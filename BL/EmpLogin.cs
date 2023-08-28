@@ -30,10 +30,13 @@ namespace BL
             con.Parameters.AddWithValue("@EmployeePW", emp.EmployeePW);
             
             con.ExecuteNonQuery();
-       
+
             SqlDataReader reader = con.ExecuteReader();
-       
+
+            string değişken;
+
             if (reader.Read())
+
             { 
                 
                
