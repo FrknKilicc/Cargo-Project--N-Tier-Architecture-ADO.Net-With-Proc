@@ -26,32 +26,8 @@ namespace Cargo_Project_Katmanlı
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {    
-            Form1 pages = new Form1();
-            Employees emp = new Employees();
-            emp.Mail = textBox1.Text;
-            emp.EmployeePW = textBox2.Text;
-       
-            //MessageBox.Show(EmpLogin.EmployeesLogin(emp).ToString());
- 
+        { 
 
-            //MessageBox.Show("Giriş Başarılı");
-            //pages.Show();
-            //this.Hide();
-
-
-
-            if (EmpLogin.EmployeesLogin(emp))
-            {
-                MessageBox.Show("Giriş Başarılı");
-                pages.Show();
-                this.Hide();
-
-            }
-            else
-            {
-                MessageBox.Show("Başarısız");
-            }
 
 
 

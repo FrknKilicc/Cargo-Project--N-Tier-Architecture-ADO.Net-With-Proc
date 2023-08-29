@@ -12,26 +12,27 @@ namespace BL
     {
         public static SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["Cargoo"].ToString());
 
-        public static bool ConnectSet (SqlCommand Command)
+        public static bool ConnectSet(SqlCommand Command)
         {
             try
             {
                 if (Command.Connection.State != System.Data.ConnectionState.Open)
                     Command.Connection.Open();
 
-                return Command.ExecuteNonQuery() > 0;  
+                return Command.ExecuteNonQuery() > 0;
             }
             catch
             {
                 return false;
 
             }
-            finally 
+            finally
             {
                 if (Command.Connection.State != System.Data.ConnectionState.Closed)
-                    Command.Connection.Close ();
-                
+                    Command.Connection.Close();
+
             }
         }
+       
     }
 }

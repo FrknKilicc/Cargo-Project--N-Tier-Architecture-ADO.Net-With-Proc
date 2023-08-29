@@ -16,51 +16,8 @@ namespace BL
 {
     public class EmpLogin
     {
-       
-        public static bool EmployeesLogin(Employees emp)
-        {
-            SqlConnection coon = new SqlConnection("Server=DESKTOP-38T2N6J;Database=Cargo;Integrated Security=true");
-            SqlCommand con = new SqlCommand("LoginEmployee",coon);
-            //SqlCommand con = new SqlCommand();
-            //con.Connection = coon
-        
-            con.CommandType = CommandType.StoredProcedure;    
-            coon.Open();
-            con.Parameters.AddWithValue("@Mail", emp.Mail);
-            con.Parameters.AddWithValue("@EmployeePW", emp.EmployeePW);
-            
-            con.ExecuteNonQuery();
 
-            SqlDataReader reader = con.ExecuteReader();
+      
 
-            string değişken;
-
-            if (reader.Read())
-
-            { 
-                
-               
-                return true;
-
-            }
-            else
-            {
-                return false;
-            }
-            coon.Close();
-
-           
-        }
-        public static bool employeesLogin2(SqlDataReader sqlDataReader)
-        {
-            if (sqlDataReader.Read())
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
     }
 }
