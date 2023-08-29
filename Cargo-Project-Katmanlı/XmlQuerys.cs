@@ -46,6 +46,9 @@ namespace Cargo_Project_Katmanlı
 
                 XmlAttribute Delivered_Location = xmlDocument.CreateAttribute("Delivered_Location");
                 Delivered_Location.Value = reader["DeliveredLocation"].ToString();
+                XmlAttribute Delivered_Location1 = xmlDocument.CreateAttribute("Delivered_Location");
+                Delivered_Location.Value = reader["DeliveredLocation"].ToString();
+
 
                 XmlAttribute ShippingNumber = xmlDocument.CreateAttribute("ShippingNumber");
                 ShippingNumber.Value = reader["ShippingNo"].ToString();
