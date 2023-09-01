@@ -16,7 +16,7 @@ namespace Cargo_Project_Katmanlı
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new XmlQuerys());
+            Application.Run(new Form1());
         }
     }
 }
