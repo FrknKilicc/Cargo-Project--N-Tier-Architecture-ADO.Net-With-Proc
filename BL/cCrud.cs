@@ -71,6 +71,32 @@ namespace BL
             return Tools.ConnectSet(con);
 
         }
+        public static bool UpVehicles(Vehicles vhc)
+        {
+            SqlCommand command = new SqlCommand("UpVehicles", Tools.con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@VehicleID", vhc.VehicleID);
+            command.Parameters.AddWithValue("@VehicleName", vhc.VehicleName);
+            command.Parameters.AddWithValue("@VehicleCapacity", vhc.VehicleCapacity);
+            command.Parameters.AddWithValue("@VehicleDriver", vhc.VehicleDriver);
+            command.Parameters.AddWithValue("@VehicleExpense", vhc.VehicleExpense);
+            command.Parameters.AddWithValue("@EmployeeID", vhc.EmployeeID);
+            return Tools.ConnectSet(command);
+        }
+
+        public static bool UpShipment(Shipping Shipment)
+        {
+            SqlCommand command = new SqlCommand("UpShipment", Tools.con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@ShippingNo", Shipment.ShippingNo);
+            command.Parameters.AddWithValue("@ShippingName",Shipment.ShippingName);
+            command.Parameters.AddWithValue("@DeliveredLocation",Shipment.DeliveredLocation);
+            command.Parameters.AddWithValue("@Distance",Shipment.Distance);
+            command.Parameters.AddWithValue("@TotalAmount",Shipment.TotalAmount);
+            command.Parameters.AddWithValue("@EmployeeID", Shipment.EmployeeID);
+            return Tools.ConnectSet(command);
+
+        }
 
         public static bool Delete(Customers cust)
         {
@@ -83,6 +109,21 @@ namespace BL
 
 
         }
+        public static bool DelVehicles(Vehicles Vhc)
+        {
+            SqlCommand command = new SqlCommand("DelVehicles", Tools.con);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.AddWithValue("@VehicleID", Vhc.VehicleID);
+            return Tools.ConnectSet(command);
+        }
+        public static bool DelShipping(Shipping shipment)
+        {
+            SqlCommand sqlCommand = new SqlCommand("DelShipping", Tools.con);
+            sqlCommand.CommandType = CommandType.StoredProcedure;
+            sqlCommand.Parameters.AddWithValue("@ShippingNo", shipment.ShippingNo);
+            return Tools.ConnectSet(sqlCommand);
+
+        }
         public static DataTable ListShipment()
         {
             SqlDataAdapter sqlDataAdapter = new SqlDataAdapter("ListShipment", Tools.con);
@@ -92,7 +133,7 @@ namespace BL
             return dt;
 
         }
-        public static DataTable ListVehicles ()
+        public static DataTable ListVehicles()
         {
             SqlDataAdapter adapter = new SqlDataAdapter("ListVehicles", Tools.con);
             adapter.SelectCommand.CommandType = System.Data.CommandType.Text;
@@ -121,6 +162,6 @@ namespace BL
 
 
         }
-     
+
     }
 }

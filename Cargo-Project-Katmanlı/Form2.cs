@@ -19,7 +19,7 @@ namespace Cargo_Project_Katmanlı
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            MessageBox.Show("fdfdh");
+            
         }
     }
 }
